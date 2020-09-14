@@ -12,16 +12,15 @@ sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ jessie-pgdg main" >> /
 apt-get update
 
 # install pg_dump
-apt-get install -y postgresql
+apt-get install -y postgresql-12
 
-# install azure cli
-echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | \
-  tee /etc/apt/sources.list.d/azure-cli.list && \
-  apt-key adv --keyserver packages.microsoft.com --recv-keys 417A0893 && \
-  apt-get update && apt-get install azure-cli
+# install curl
+apt-get install -y --no-install-recommends curl
+
+#install Azure CLI
+curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
 # install go-cron
-apt-get install -y --no-install-recommends curl
 curl -L --insecure https://github.com/odise/go-cron/releases/download/v0.0.6/go-cron-linux.gz | zcat > /usr/local/bin/go-cron
 chmod u+x /usr/local/bin/go-cron
 
