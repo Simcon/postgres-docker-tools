@@ -4,15 +4,15 @@
 set -e
 
 apt-get update
-apt-get install -y wget apt-transport-https
+apt-get install -y wget apt-transport-https gnupg2
 
 wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | apt-key add -
-sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ jessie-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
+sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
 
 apt-get update
 
 # install pg_dump
-apt-get install -y postgresql-12
+apt-get install -y postgresql-13
 
 # install curl
 apt-get install -y --no-install-recommends curl

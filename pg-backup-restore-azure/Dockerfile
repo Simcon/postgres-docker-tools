@@ -1,4 +1,4 @@
-FROM debian:jessie-slim
+FROM debian:buster-slim
 LABEL creator="Johannes Schickling <schickling.j@gmail.com>"
 LABEL maintainer="Alex Knol <alexknol@gmail.com>"
 
